@@ -1,0 +1,37 @@
+#slider{
+    width: 800px;
+    height: 450px;
+    margin: 50px auto;
+    position: relative;
+    border: 5px solid white;
+}
+img{
+    width: 100%;
+    height: 450px;
+    display: block;
+    /* position: absolute; */
+}
+button{
+    padding: 20px;
+    border: none;
+    background: blue;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+}
+.previous{
+    border-radius: 0px 10px 10px 0px;
+}
+.next{
+    margin-left: 92.7%;
+    border-radius: 10px 0px 0px 10px;
+}
+.item {
+    display: none;
+    position : relative;
+}
+.active {
+    display: block;
+}
