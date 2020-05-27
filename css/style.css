@@ -21,7 +21,7 @@ button{
     position: absolute;
     top: 45%;
 }
-.previous{
+.prev{
     border-radius: 0px 10px 10px 0px;
 }
 .next{

@@ -1,34 +1,43 @@
 let prevImg = document.querySelector('.prev'),
-    nextImg = document.querySelector('.next'),
-    slides = document.getElementsByClassName('item'),
-    slidesNumber = slides.length,
-    index = 0;
+    nextImg = document.querySelector('.next');
 
-//this is implemented by clicking on the prevBtn
+class Move {
+
+    constructor (direction){
+        this.direction = direction;
+        this.slides = document.getElementsByClassName('item');
+        this.slidesNumber = this.slides.length;
+        this.index = 0;
+    }
+    
+    moveTo() {  
+        if (this.direction == "next") {
+            this.index++; 
+           if (this.index == this.slidesNumber) {
+            this.index = 0;
+           }
+        } else {
+            if (this.index == 0) {
+                this.index = this.slidesNumber - 1;
+            } else {
+                this.index--;
+            }
+        }
+        for (let i = 0; i < this.slidesNumber; i++) {
+            this.slides[i].classList.remove("active");
+        }
+        this.slides[this.index].classList.add("active");
+    }
+    
+}
+let prevObj = new Move("prev");
+//will be implemented by clicking on the prevBtn
 prevImg.onclick =  () => {
-    moveTo("prev");
-}  
-//this is implemented by clicking on the prevBtn 
-nextImg.onclick =  () => {
-    moveTo("next");
+    prevObj.moveTo();
 } 
 
-// move to the given direction (next or previous slide)
-function moveTo(direction) {  
-    if (direction == "next") {
-       index++; 
-       if (index == slidesNumber) {
-           index = 0;
-       }
-    } else {
-        if (index == 0) {
-            index = slidesNumber - 1;
-        } else {
-            index--;
-        }
-    }
-    for (i = 0; i < slidesNumber; i++) {
-        slides[i].classList.remove("active");
-    }
-    slides[index].classList.add("active");
-}
+let nextObj = new Move("next");
+//will be implemented by clicking on the prevBtn 
+nextImg.onclick =  () => {
+    nextObj.moveTo();
+} 
