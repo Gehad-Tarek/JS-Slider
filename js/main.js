@@ -1,7 +1,6 @@
-let prevImg = document.querySelector('.prev'),
-    nextImg = document.querySelector('.next');
-
 class Move {
+    prevImg = document.querySelector('.prev');
+    nextImg = document.querySelector('.next');
 
     constructor (direction){
         this.direction = direction;
@@ -28,16 +27,21 @@ class Move {
         }
         this.slides[this.index].classList.add("active");
     }
+   
+    moveToPrev() {
+        this.prevImg.onclick =  () => {
+            this.moveTo();
+        }
+    }
     
+    moveToNext() {
+        this.nextImg.onclick =  () => {
+            this.moveTo();
+        } 
+    }
 }
 let prevObj = new Move("prev");
-//will be implemented by clicking on the prevBtn
-prevImg.onclick =  () => {
-    prevObj.moveTo();
-} 
+prevObj.moveToPrev();
 
 let nextObj = new Move("next");
-//will be implemented by clicking on the prevBtn 
-nextImg.onclick =  () => {
-    nextObj.moveTo();
-} 
+nextObj.moveToNext();
