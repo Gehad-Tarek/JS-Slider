@@ -30,18 +30,21 @@ class Move {
    
     moveToPrev() {
         this.prevImg.onclick =  () => {
-            this.moveTo();
+            this.moveTo("prev");
         }
     }
     
     moveToNext() {
         this.nextImg.onclick =  () => {
-            this.moveTo();
+            this.moveTo("next");
         } 
     }
 }
-let prevObj = new Move("prev");
-prevObj.moveToPrev();
+// let prevObj = new Move("prev");
+// prevObj.moveToPrev();
 
-let nextObj = new Move("next");
-nextObj.moveToNext();
+// let nextObj = new Move("next");
+// nextObj.moveToNext();
+let moveObj = new Move();
+moveObj.moveToPrev();
+moveObj.moveToNext();
